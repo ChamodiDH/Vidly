@@ -1,0 +1,38 @@
+﻿@using System.Web.Mvc
+@model Vidly.ViewModel.MovieViewModel
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Movies</h2>
+@if (Model.Movies.Count == 0)
+{
+
+
+
+    <h6>No movies found</h6>
+}
+else
+{
+
+    <table>
+        <tr>
+            <th>Movie Name</th>
+        </tr>
+        @foreach (var movie in Model.Movies)
+        {
+
+            <tr>
+               
+                <td>
+                    @Html.ActionLink(@movie.Name,"Details", new { id = movie.Id, name=movie.Name })
+                </td>
+                
+            </tr>
+        }
+    </table>
+}
+
+
